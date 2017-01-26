@@ -1,0 +1,6 @@
+framework module Pods_AddNewTagUITests {
+  umbrella header "Pods-AddNewTagUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

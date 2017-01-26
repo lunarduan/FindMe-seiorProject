@@ -1,0 +1,6 @@
+framework module Pods_AddNewTag {
+  umbrella header "Pods-AddNewTag-umbrella.h"
+
+  export *
+  module * { export * }
+}
