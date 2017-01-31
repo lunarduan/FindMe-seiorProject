@@ -19,17 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AddNewTag.xcscheme</key>
+		<key>Pods-FindMe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AddNewTagTests.xcscheme</key>
+		<key>Pods-FindMeTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AddNewTagUITests.xcscheme</key>
+		<key>Pods-FindMeUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,22 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>62DD8E8B89694A9B06E82EC68069F046</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70F1EB2E7481ECE2C16EAF77478BA340</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>840765184271AD9D776DC51065876BE9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C929B1DA86655DB708AA4F9004256AF0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D42042A8DD8443A85BD3E109E78EFC0E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E54AFA5D37D57F5C91CDE27559FE0E57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
