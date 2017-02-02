@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import IQKeyboardManagerSwift
+import IQKeyboardManagerSwift
 import FirebaseDatabase
 
 class AddnewtagViewController: UIViewController {
@@ -48,11 +48,7 @@ class AddnewtagViewController: UIViewController {
         //use to connect AddnewtagViewController to tagdetailViewController
         self.performSegue(withIdentifier: "gototagdetail", sender: nil)
     }
-   
     
-    @IBAction func b1(_ sender: AnyObject) {
-        print("Test!!")
-    }
     
     // when press Logout button you will go to the fisrt page (Login)ViewController
     @IBAction func logoutdidtouch(_ sender: Any) {
@@ -64,8 +60,6 @@ class AddnewtagViewController: UIViewController {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         
         appdelegate .window?.rootViewController = logout
-        
-    
     
     }
     

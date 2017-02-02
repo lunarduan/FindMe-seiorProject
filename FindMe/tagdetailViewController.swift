@@ -91,6 +91,13 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         tagdetailref.setValue(tagdetailValue)
     }
     
+    
+    @IBAction func selecpicturedidtouch(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "imagesource", sender: nil)
+
+    }
+    
     // เมื่อกดbackหน้านี้(tagdetailViewContoller)จะลดลง -> จะขึ้นหน้า AddnewrtagViewContoller
     @IBAction func back(_ sender: Any) {
         
