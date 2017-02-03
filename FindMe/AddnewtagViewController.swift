@@ -20,13 +20,11 @@ class AddnewtagViewController: UIViewController {
     @IBOutlet weak var majorfield: UITextField!
     @IBOutlet weak var minorfield: UITextField!
     
-    @IBOutlet weak var b1: UIButton!
-
+    
     let rootref = FIRDatabase.database().reference().child("NewTagConfig")
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello")
     
     }
 
