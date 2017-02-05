@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class registrationViewController: UIViewController {
+class registrationViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
 
     @IBOutlet weak var usernamelabel: UILabel!
@@ -18,7 +18,8 @@ class registrationViewController: UIViewController {
     
     @IBOutlet weak var dateofbirthtextfield: UITextField!
     
-    //var useremail = UILabel()
+    @IBOutlet weak var userprofileimage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,6 @@ class registrationViewController: UIViewController {
         self.present(manageActionSheet, animated: true, completion: nil)
     }
 
-    
     
     func changeUserInfo() {
         let alert = UIAlertController(title: "Change your username", message: nil, preferredStyle: .alert)
@@ -177,6 +177,31 @@ class registrationViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    
+    @IBAction func selectuserimage(_ sender: Any) {
+        //called when press button under imageview
+        let pickercontroller = UIImagePickerController()
+        pickercontroller.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        pickercontroller.allowsEditing = true
+        
+        //ทำให้แสดงค่ารูปที่เลือกได้
+        pickercontroller.delegate = self
+        
+        
+        self.present(pickercontroller, animated: true, completion: nil)
+        
+    }
+    
+    //executed if image is selected
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let images = info[UIImagePickerControllerEditedImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+        
+        return  userprofileimage.image = images
+        
+    }
+    
     
     @IBAction func startaction(_ sender: Any) {
         self.performSegue(withIdentifier: "tabbar", sender: nil)
