@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class homeViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -17,12 +17,10 @@ class homeViewController: UIViewController {
     }
 
     @IBAction func logoutdidtouch(_ sender: Any) {
+        try! FIRAuth.auth()!.signOut()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         let logout = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        
         appdelegate .window?.rootViewController = logout
     }
 

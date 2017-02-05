@@ -56,6 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    //Add for login page alert message
+    static func showAlertMsg(withViewController vc: UIViewController, message: String) {
+        let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        vc.present(alert, animated: true, completion: nil)
+    }
+
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

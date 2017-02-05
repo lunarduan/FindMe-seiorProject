@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddnewtagViewController: UIViewController {
 
@@ -53,12 +54,11 @@ class AddnewtagViewController: UIViewController {
     // when press Logout button you will go to the fisrt page (Login)ViewController
     @IBAction func logoutdidtouch(_ sender: Any) {
         
+        try! FIRAuth.auth()!.signOut()
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         let logout = storyboard.instantiateViewController(withIdentifier: "ViewController") as!ViewController
-        
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        
         appdelegate .window?.rootViewController = logout
     
     }

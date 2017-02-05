@@ -11,6 +11,7 @@ target 'FindMe' do
     pod ‘Firebase/Database’
     pod 'IQKeyboardManagerSwift'
     pod 'Firebase/Storage'
+    pod 'Firebase/Auth'
 
   target 'FindMeTests' do
     inherit! :search_paths

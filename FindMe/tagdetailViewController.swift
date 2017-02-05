@@ -22,18 +22,28 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     var notirange: [String]!
     
     @IBOutlet weak var mypic: UIImageView!
+    var selectedimage = UIImage()
     
     var tagname: String = ""
     var tagdescribe: String = ""
     var Tagnotidistance = ""
-
+    
+    
     let ref = FIRDatabase.database().reference().child("TagsDetail")
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         notificationpickerview.frame = CGRect(x: 0, y: 430, width: self.view.bounds.width, height: 100)
-    }
+        
+        mypic.image = selectedimage
+        mypic.sizeToFit()
+        mypic.center.x = self.view.center.x
+        mypic.center.y = 140
+        
+           }
     
     
     @IBAction func notificationswitch(_ sender: Any) {
@@ -78,9 +88,15 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     //when Done button pressed, app will sent data to firebase database
     @IBAction func donedidtouch(_ sender: Any) {
         let tagdetailref = ref.childByAutoId()
-        
+     
+        let storageref = FIRStorage.storage().reference().child("tagimage.png")
+
         tagname = tagnamefield.text!
         tagdescribe = tagdesciptionview.text!
+        
+        if tagdescribe == nil{
+            tagdescribe = ""
+        }
         
         let tagdetailValue = [
             "TagName": tagname,
@@ -89,13 +105,25 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             ] as [String : Any]
         
         tagdetailref.setValue(tagdetailValue)
+        
+        let uploadtagimage = UIImagePNGRepresentation(mypic.image!)
+        storageref.put(uploadtagimage!)
+        
     }
+    
+    @IBAction func selectpicturedidtouch(_ sender: Any) {
+        self.performSegue(withIdentifier: "symbol", sender: nil)
+    }
+    
     
     // เมื่อกดbackหน้านี้(tagdetailViewContoller)จะลดลง -> จะขึ้นหน้า AddnewrtagViewContoller
     @IBAction func back(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
-    
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let TagVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate .window?.rootViewController = TagVC
+  
     }
 
     
