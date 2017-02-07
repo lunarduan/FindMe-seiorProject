@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class registrationViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -20,6 +22,14 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet weak var userprofileimage: UIImageView!
     
+    @IBOutlet weak var userid: UILabel!
+    
+    var uid:String = ""
+    var username:String = ""
+    var email:String = ""
+    var dateofbirth:String = ""
+    
+    let regisref = FIRDatabase.database().reference().child("Users")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +37,12 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         if let user = FIRAuth.auth()?.currentUser {
             setUserDataToView(withFIRUser: user)
         }
-        
     }
     
     func setUserDataToView(withFIRUser user: FIRUser) {
         emaillabel.text = user.email
         usernamelabel.text = user.displayName
+        userid.text = user.uid
     }
     
     
@@ -198,15 +208,48 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         let images = info[UIImagePickerControllerEditedImage] as? UIImage
         dismiss(animated: true, completion: nil)
         
+        //ทำให้รูปเป็นวงกลม
+        userprofileimage.layer.cornerRadius = 20
+        userprofileimage.layer.masksToBounds = true
+
         return  userprofileimage.image = images
         
     }
     
     
     @IBAction func startaction(_ sender: Any) {
+        
+        let imageName = NSUUID().uuidString
+        
+        let storageref = FIRStorage.storage().reference().child("profile_images").child("\(imageName).png")
+    
+        let newuser = regisref.child(userid.text!)
+        
+        uid = userid.text!
+        username = usernamelabel.text!
+        email = emaillabel.text!
+        dateofbirth = dateofbirthtextfield.text!
+        
+        
+        let uploadtagimage = UIImagePNGRepresentation(userprofileimage.image!)
+      
+        storageref.put(uploadtagimage!, metadata: nil) { ( metadata, error) in
+            let profileImageUrl = metadata?.downloadURL()?.absoluteString
+            
+            let uservalue = [
+                "userid": self.uid,
+                "username": self.username,
+                "e-mail": self.email,
+                "dateofbirth": self.dateofbirth,
+                "userimageurl": profileImageUrl,
+                ] as [String : Any]
+            newuser.setValue(uservalue)
+        }
+    
         self.performSegue(withIdentifier: "tabbar", sender: nil)
+    
     }
     
-    
+
     
 }

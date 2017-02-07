@@ -278,7 +278,7 @@
 				TargetAttributes = {
 					195994B21E3F7B4B007938C2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 3G632648EE;
+						DevelopmentTeam = 7T4WC2R6B2;
 						ProvisioningStyle = Automatic;
 					};
 					195994C91E3F7B4C007938C2 = {
@@ -651,7 +651,7 @@
 			baseConfigurationReference = 27387DB6BC3DFE602F821BAA /* Pods-FindMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3G632648EE;
+				DEVELOPMENT_TEAM = 7T4WC2R6B2;
 				INFOPLIST_FILE = FindMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunix.FindMe;
@@ -665,7 +665,7 @@
 			baseConfigurationReference = E55409ACDACBC73A8316C8E8 /* Pods-FindMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3G632648EE;
+				DEVELOPMENT_TEAM = 7T4WC2R6B2;
 				INFOPLIST_FILE = FindMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunix.FindMe;

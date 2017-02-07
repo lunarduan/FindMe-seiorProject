@@ -28,10 +28,11 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     var tagdescribe: String = ""
     var Tagnotidistance = ""
     
+    var tagsid = String()
+    var usertagid: String = ""
+   
     
     let ref = FIRDatabase.database().reference().child("TagsDetail")
-    
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,9 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         mypic.center.x = self.view.center.x
         mypic.center.y = 140
         
-           }
+        usertagid = tagsid
+    
+    }
     
     
     @IBAction func notificationswitch(_ sender: Any) {
@@ -84,32 +87,59 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         }
     }
     
+   
     
     //when Done button pressed, app will sent data to firebase database
     @IBAction func donedidtouch(_ sender: Any) {
-        let tagdetailref = ref.childByAutoId()
-     
-        let storageref = FIRStorage.storage().reference().child("tagimage.png")
+        //try access auto key
+        //let tagref = FIRDatabase.database().reference().child("Tags")
 
+        //tagref.observeSingleEvent(of: .value, with: { snapshot in
+       
+            
+       // }
+        
+
+        
+        
+        
+        
+        
+        
+        let tagdetailref = ref.childByAutoId()
+        
         tagname = tagnamefield.text!
         tagdescribe = tagdesciptionview.text!
+    
         
         if tagdescribe == nil{
             tagdescribe = ""
         }
         
-        let tagdetailValue = [
-            "TagName": tagname,
-            "TagDescription": tagdescribe,
-            "TagNotiDistance": Tagnotidistance,
-            ] as [String : Any]
-        
-        tagdetailref.setValue(tagdetailValue)
+        //upload tag image to firebase storage
+        let imageName = NSUUID().uuidString
+        let storageref = FIRStorage.storage().reference().child("tags_images").child("\(imageName).png")
         
         let uploadtagimage = UIImagePNGRepresentation(mypic.image!)
-        storageref.put(uploadtagimage!)
+        //storageref.put(uploadtagimage!)
+        
+        storageref.put(uploadtagimage!, metadata: nil) { ( metadata, error) in
+            let tagImageUrl = metadata?.downloadURL()?.absoluteString
+            
+            let tagdetailValue = [
+                "tagid":  self.usertagid,
+                "TagName": self.tagname,
+                "TagDescription": self.tagdescribe,
+                "TagNotiDistance": self.Tagnotidistance,
+                "tagurl": tagImageUrl,
+                ] as [String : Any]
+            
+            tagdetailref.setValue(tagdetailValue)
+            
+        }
         
     }
+    
     
     @IBAction func selectpicturedidtouch(_ sender: Any) {
         self.performSegue(withIdentifier: "symbol", sender: nil)

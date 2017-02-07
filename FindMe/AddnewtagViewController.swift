@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 import FirebaseDatabase
 import FirebaseAuth
 
-class AddnewtagViewController: UIViewController {
+class AddnewtagViewController: UIViewController, UINavigationControllerDelegate  {
 
     var uuid:String = ""
     var major:Int = 0
@@ -21,8 +21,9 @@ class AddnewtagViewController: UIViewController {
     @IBOutlet weak var majorfield: UITextField!
     @IBOutlet weak var minorfield: UITextField!
     
+    var tagid: String = ""
     
-    let rootref = FIRDatabase.database().reference().child("NewTagConfig")
+    let rootref = FIRDatabase.database().reference().child("Tags")
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +35,17 @@ class AddnewtagViewController: UIViewController {
         
         let newtagconfig = rootref.childByAutoId()
         
+        tagid = newtagconfig.key as String
+        
+        
+        let userid = FIRAuth.auth()!.currentUser!.uid
+        
         uuid = uuidfield.text!
         major = Int(majorfield.text!)!
         minor = Int(minorfield.text!)!
        
         let tagconfigValue = [
+            "userid": userid,
             "uuid": uuid,
             "major": major,
             "minor": minor,
@@ -62,5 +69,16 @@ class AddnewtagViewController: UIViewController {
         appdelegate .window?.rootViewController = logout
     
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var dstVC :  tagdetailViewController = segue.destination as! tagdetailViewController
+        print("..........yyyy")
+        print(tagid)
+        dstVC.tagsid = self.tagid
+    }
+    
+
+    
     
 }
