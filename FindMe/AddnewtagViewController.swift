@@ -21,13 +21,16 @@ class AddnewtagViewController: UIViewController, UINavigationControllerDelegate 
     @IBOutlet weak var majorfield: UITextField!
     @IBOutlet weak var minorfield: UITextField!
     
-    var tagid: String = ""
+    //access tag id
+    @IBOutlet weak var mysendtext: UILabel!
+    var tagid:String!
+    //
+    
     
     let rootref = FIRDatabase.database().reference().child("Tags")
  
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
 
     //executed when pressed Save button
@@ -35,8 +38,8 @@ class AddnewtagViewController: UIViewController, UINavigationControllerDelegate 
         
         let newtagconfig = rootref.childByAutoId()
         
+        //access tag id
         tagid = newtagconfig.key as String
-        
         
         let userid = FIRAuth.auth()!.currentUser!.uid
         
@@ -50,9 +53,10 @@ class AddnewtagViewController: UIViewController, UINavigationControllerDelegate 
             "major": major,
             "minor": minor,
         ] as [String : Any]
+        
         //save tag data to firebase
         newtagconfig.setValue(tagconfigValue)
-
+        
         //use to connect AddnewtagViewController to tagdetailViewController
         self.performSegue(withIdentifier: "gototagdetail", sender: nil)
     }
@@ -70,12 +74,11 @@ class AddnewtagViewController: UIViewController, UINavigationControllerDelegate 
     
     }
     
-    
+    //passing tag data to tagdetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var dstVC :  tagdetailViewController = segue.destination as! tagdetailViewController
-        print("..........yyyy")
-        print(tagid)
-        dstVC.tagsid = self.tagid
+        
+        dstVC.usertagid = self.tagid
     }
     
 

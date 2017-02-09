@@ -53,7 +53,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="|   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ft-4D-EkV">
                                 <rect key="frame" x="0.0" y="560" width="375" height="64"/>
@@ -360,12 +360,12 @@
                         <outlet property="majorfield" destination="Id0-dC-nmF" id="ujD-Of-8EM"/>
                         <outlet property="minorfield" destination="cpn-eB-L9Q" id="in5-AY-dBi"/>
                         <outlet property="uuidfield" destination="e1N-4I-7TC" id="4UE-T9-D5N"/>
-                        <segue destination="zLm-Pc-tdB" kind="show" identifier="gototagdetail" action="showDetailViewController:sender:" id="Bid-E2-2YH"/>
+                        <segue destination="zLm-Pc-tdB" kind="show" identifier="gototagdetail" id="JnW-jm-cv2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9We-KT-oTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1442" y="-9"/>
+            <point key="canvasLocation" x="-1442.4000000000001" y="-9.4452773613193415"/>
         </scene>
         <!--Title-->
         <scene sceneID="EVG-xs-GVt">
@@ -455,10 +455,6 @@
                                 <rect key="frame" x="130" y="81" width="132" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x09-4i-xNa">
-                                <rect key="frame" x="0.0" y="403" width="375" height="168"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yzb-aY-kbS">
                                 <rect key="frame" x="310" y="345" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -485,6 +481,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x09-4i-xNa">
+                                <rect key="frame" x="0.0" y="395" width="375" height="168"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -500,7 +500,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aza-bp-7eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1442.4000000000001" y="772.26386806596713"/>
+            <point key="canvasLocation" x="-1442.4000000000001" y="757.87106446776613"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bNg-wV-AXb">
+            <objects>
+                <viewController id="hST-I3-82W" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qXq-HJ-kuU"/>
+                        <viewControllerLayoutGuide type="bottom" id="FgD-OC-cFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mhA-aG-fmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJg-lD-Ii8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-569" y="758"/>
         </scene>
         <!--Tagsymbolsource Collection View Controller-->
         <scene sceneID="Ehs-wu-rtL">
@@ -718,7 +736,7 @@
                                     </textAttributes>
                                     <items>
                                         <navigationItem title="Select from symbol" id="F3W-LK-Eyf">
-                                            <barButtonItem key="leftBarButtonItem" title="Back &amp; Save" id="b6h-aW-X1i">
+                                            <barButtonItem key="leftBarButtonItem" title="Back" id="b6h-aW-X1i">
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="backdidtouch:" destination="BzO-Wt-MBT" id="W3B-bs-EFv"/>
@@ -754,6 +772,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag Collection" id="O7X-st-GG2"/>
+                    <connections>
+                        <segue destination="hST-I3-82W" kind="modal" identifier="dddd" id="Bpq-uT-tun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbU-2S-r5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -852,13 +873,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqw-d9-3ar">
-                                <rect key="frame" x="112" y="222" width="150" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="phm-Id-iwK">
+                                <rect key="frame" x="0.0" y="72" width="381" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-IT-O1p">
+                                <rect key="frame" x="119" y="418" width="142" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -866,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gga-rc-POf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2350" y="-9"/>
+            <point key="canvasLocation" x="-2351.1999999999998" y="-9.4452773613193415"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qdd-5R-0nb">
@@ -895,9 +917,11 @@
         <image name="Path.png" width="393" height="685"/>
         <image name="add" width="25" height="25"/>
         <image name="displayprofile" width="187" height="188"/>
+        <image name="home" width="376" height="286"/>
         <image name="icon-fm-1.png" width="500" height="500"/>
+        <image name="tutorial" width="165" height="158"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bid-E2-2YH"/>
+        <segue reference="JnW-jm-cv2"/>
     </inferredMetricsTieBreakers>
 </document>

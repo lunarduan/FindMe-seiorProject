@@ -16,6 +16,9 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     
     var selectedsymbol : UIImageView!
     
+    var tag:String?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,11 +72,14 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
 
     // send tag image to previous viewcontroller(tagdetailViewContoller)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if selectedsymbol.image == nil{
             selectedsymbol.image = tagarray[0]
         }
+        
         var dstVC : tagdetailViewController = segue.destination as! tagdetailViewController
         dstVC.selectedimage = self.selectedsymbol.image!
+        dstVC.usertagid = self.tag!
     }
 
     
