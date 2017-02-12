@@ -18,16 +18,19 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var emaillabel: UILabel!
     @IBOutlet weak var passwordlabel: UILabel!
     
-    @IBOutlet weak var dateofbirthtextfield: UITextField!
-    
     @IBOutlet weak var userprofileimage: UIImageView!
     
     @IBOutlet weak var userid: UILabel!
     
+    
+    @IBOutlet weak var dateofbirthlabel: UILabel!
+    var birthdayDatePicker : UIDatePicker!
+    var dateofbirth:String = ""
+    
+    
     var uid:String = ""
     var username:String = ""
     var email:String = ""
-    var dateofbirth:String = ""
     
     let regisref = FIRDatabase.database().reference().child("Users")
     
@@ -37,12 +40,37 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         if let user = FIRAuth.auth()?.currentUser {
             setUserDataToView(withFIRUser: user)
         }
+        
+        // DatePicker Programmatically
+        birthdayDatePicker = UIDatePicker()
+        birthdayDatePicker.frame = CGRect(x: 0, y: 415, width: self.view.bounds.width, height: 100)
+        birthdayDatePicker.addTarget(self, action: #selector(getDateAndTime), for: UIControlEvents.valueChanged)
+        birthdayDatePicker.datePickerMode = UIDatePickerMode.date
+        birthdayDatePicker.locale = Locale.current
+        birthdayDatePicker.timeZone = TimeZone.current
+       // birthdayDatePicker.date = Date(timeIntervalSince1970: 10)
+        //birthdayDatePicker.minimumDate = Date(timeIntervalSince1970: 20)
+        birthdayDatePicker.maximumDate = Date(timeIntervalSinceNow: 0)
+        
+        self.view.addSubview(birthdayDatePicker)
+        
     }
     
     func setUserDataToView(withFIRUser user: FIRUser) {
         emaillabel.text = user.email
         usernamelabel.text = user.displayName
         userid.text = user.uid
+    }
+    
+    // called when picker is changed
+    func getDateAndTime() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-YYYY"
+        
+        // convert date from datePicker to String type
+        let dateString = dateFormatter.string(from: birthdayDatePicker.date)
+        dateofbirthlabel.text = " \(dateString)"
+
     }
     
     
@@ -228,7 +256,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         uid = userid.text!
         username = usernamelabel.text!
         email = emaillabel.text!
-        dateofbirth = dateofbirthtextfield.text!
+        dateofbirth = dateofbirthlabel.text!
         
         
         let uploadtagimage = UIImagePNGRepresentation(userprofileimage.image!)

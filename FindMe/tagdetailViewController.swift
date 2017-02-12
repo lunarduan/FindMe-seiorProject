@@ -17,6 +17,7 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var notificationswitch: UISwitch!
    
+    //this for picker
     @IBOutlet weak var notificationlabel: UILabel!
     @IBOutlet weak var notificationpickerview: UIPickerView!
     var notirange: [String]!
@@ -45,6 +46,7 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         mypic.center.y = 140
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -111,41 +113,47 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     @IBAction func notificationswitch(_ sender: Any) {
         if notificationswitch.isOn {
+            //these are for picker
             notificationpickerview.showsSelectionIndicator = true
             notificationpickerview.delegate = self
             notificationpickerview.dataSource = self
             notirange = ["Immediate(0 - 20 cm.)", "Near(20 cm. - 2 m.)", "Far(2 - 30 m.)"]
             self.view.addSubview(notificationpickerview)
+            //
         }
         else {
-            
+            //these are for picker
             notificationpickerview.delegate = self
             notificationpickerview.dataSource = self
             notirange = ["", "", ""]
+            //
         }
     
     }
     
-    // total number of column(components)
+    // total number of column(components) for picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    // total number of rows
+    // total number of rows for picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 3
     }
     
+    //these are for picker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return notirange[row]
     }
     
+    //these are for picker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if notificationswitch.isOn {
             notificationlabel.text = notirange[row]
             Tagnotidistance = notificationlabel.text!
         }
     }
+    
     
     @IBAction func selectpicturedidtouch(_ sender: Any) {
         self.performSegue(withIdentifier: "symbol", sender: nil)
