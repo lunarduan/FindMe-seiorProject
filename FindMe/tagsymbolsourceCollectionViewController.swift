@@ -86,15 +86,4 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     }
     
     
-    //NSUser
-    let tagnameKeyConstant = "tagnameKey"
-    func readButton()
-    {
-        let defaults = UserDefaults.standard
-        let name = defaults.string(forKey:  tagnameKeyConstant)
-        print(name)
-    }
-    
-
-   
 }

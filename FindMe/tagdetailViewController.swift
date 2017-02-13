@@ -32,6 +32,16 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     //data passing from addnewtagVC
     var usertagid = String()
     
+    
+    //NSUser
+    var tagidKeyConstant = ""
+    var tagnameKeyConstant = ""
+    var tagdescriptionKeyConstant = ""
+    var tagnotidistanceKeyConstant = ""
+    var notiswitchKeyConstant = ""
+    
+
+    
     let ref = FIRDatabase.database().reference().child("TagsDetail")
     
     override func viewDidLoad(){
@@ -44,9 +54,14 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         mypic.center.x = self.view.center.x
         mypic.center.y = 140
         
-        print("view did load...")
-        readButton()
         
+        //NSUser
+        tagidKeyConstant = self.usertagid
+        tagnameKeyConstant = "\(tagidKeyConstant)"+"tagnameKey"
+        tagdescriptionKeyConstant = "\(tagidKeyConstant)"+"tagdescriptionKey"
+        tagnotidistanceKeyConstant = "\(tagidKeyConstant)"+"tagnotidistanceKey"
+        notiswitchKeyConstant = "\(tagidKeyConstant)"+"notiswitchKey"
+        readData()
     }
     
     
@@ -59,7 +74,9 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
 
     
     @IBAction func selectpicturedidtouch(_ sender: Any) {
-        writeButton()
+        //NSUser
+        writeData()
+        
         self.performSegue(withIdentifier: "symbol", sender: nil)
         
     }
@@ -155,15 +172,11 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
   
     }
 
-    
-    //NSUser
-    let tagnameKeyConstant = "tagnameKey"
-    let tagdescriptionKeyConstant = "tagdescriptionKey"
-    let tagnotidistanceKeyConstant = "tagnotidistanceKey"
-    let notiswitchKeyConstant = "notiswitchKey"
-    
-    func writeButton()
+    //NSUser after 13/2/2017
+    func writeData()
     {
+        print("tagnamekey in write")
+        print(tagnameKeyConstant)
         let defaults = UserDefaults.standard
         defaults.set(tagnamefield.text, forKey:  tagnameKeyConstant)
         defaults.set(tagdesciptionview.text, forKey:  tagdescriptionKeyConstant)
@@ -172,8 +185,10 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
 
     }
     
-    func readButton()
+    func readData()
     {
+        print("tagnamekey in read")
+        print(tagnameKeyConstant)
             let defaults = UserDefaults.standard
             let name = defaults.string(forKey:  tagnameKeyConstant)
             let descriptions = defaults.string(forKey:  tagdescriptionKeyConstant)
@@ -184,12 +199,15 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             tagdesciptionview.text = descriptions
             notificationswitch.isOn = notiswitchstate
             notificationlabel.text = notidistance
-        
+       
+        if notidistance == nil{
+        }
+        else{
             if Tagnotidistance == "" {
                 Tagnotidistance = notidistance!
             }
+        }
     }
-    //
     
     
     

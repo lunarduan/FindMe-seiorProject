@@ -27,13 +27,14 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     var birthdayDatePicker : UIDatePicker!
     var dateofbirth:String = ""
     
+    var uid:String = ""
+    var username:String = ""
+    var email:String = ""
+    
     
     //NSUser
     var bdKeyConstant: String = ""
     
-    var uid:String = ""
-    var username:String = ""
-    var email:String = ""
     
     let regisref = FIRDatabase.database().reference().child("Users")
     
@@ -56,8 +57,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         self.view.addSubview(birthdayDatePicker)
         
         //NSUser
-        print("read function after select image")
-        readButton()
+        readData()
         
     }
     
@@ -80,7 +80,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         dateofbirthlabel.text = " \(dateString)"
         
         //NSUser
-        writeButton()
+        writeData()
     }
     
     
@@ -260,9 +260,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     @IBAction func startaction(_ sender: Any) {
         
         let imageName = NSUUID().uuidString
-        
         let storageref = FIRStorage.storage().reference().child("profile_images").child("\(imageName).png")
-    
         let newuser = regisref.child(userid.text!)
         
         uid = userid.text!
@@ -273,6 +271,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         
         let uploadtagimage = UIImagePNGRepresentation(userprofileimage.image!)
       
+        //sent user image to storage with command storageref.put()
         storageref.put(uploadtagimage!, metadata: nil) { ( metadata, error) in
             let profileImageUrl = metadata?.downloadURL()?.absoluteString
             
@@ -291,13 +290,13 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     
   
     //NSUser
-    func writeButton()
+    func writeData()
     {
         let defaults = UserDefaults.standard
         defaults.set(dateofbirthlabel.text, forKey:  bdKeyConstant)
     }
     
-    func readButton()
+    func readData()
     {
         let defaults = UserDefaults.standard
         let bd = defaults.string(forKey:  bdKeyConstant)
