@@ -28,6 +28,9 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     var dateofbirth:String = ""
     
     
+    //NSUser
+    var bdKeyConstant: String = ""
+    
     var uid:String = ""
     var username:String = ""
     var email:String = ""
@@ -48,11 +51,13 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         birthdayDatePicker.datePickerMode = UIDatePickerMode.date
         birthdayDatePicker.locale = Locale.current
         birthdayDatePicker.timeZone = TimeZone.current
-       // birthdayDatePicker.date = Date(timeIntervalSince1970: 10)
-        //birthdayDatePicker.minimumDate = Date(timeIntervalSince1970: 20)
         birthdayDatePicker.maximumDate = Date(timeIntervalSinceNow: 0)
         
         self.view.addSubview(birthdayDatePicker)
+        
+        //NSUser
+        print("read function after select image")
+        readButton()
         
     }
     
@@ -60,6 +65,9 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         emaillabel.text = user.email
         usernamelabel.text = user.displayName
         userid.text = user.uid
+        
+        //NSUser
+        bdKeyConstant = userid.text!
     }
     
     // called when picker is changed
@@ -70,12 +78,14 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         // convert date from datePicker to String type
         let dateString = dateFormatter.string(from: birthdayDatePicker.date)
         dateofbirthlabel.text = " \(dateString)"
-
+        
+        //NSUser
+        writeButton()
     }
     
     
     @IBAction func logoutdidtouch(_ sender : Any) {
-        
+    
         try! FIRAuth.auth()!.signOut()
        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -83,6 +93,8 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate .window?.rootViewController = loginVC
     }
+    
+    
     
     @IBAction func editaction(_ sender: UIBarButtonItem) {
         performSelector(inBackground: #selector(editdidtouch), with: editdidtouch())
@@ -225,10 +237,10 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         //ทำให้แสดงค่ารูปที่เลือกได้
         pickercontroller.delegate = self
         
-        
         self.present(pickercontroller, animated: true, completion: nil)
         
     }
+    
     
     //executed if image is selected
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -239,7 +251,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         //ทำให้รูปเป็นวงกลม
         userprofileimage.layer.cornerRadius = 20
         userprofileimage.layer.masksToBounds = true
-
+        
         return  userprofileimage.image = images
         
     }
@@ -273,11 +285,24 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
                 ] as [String : Any]
             newuser.setValue(uservalue)
         }
-    
         self.performSegue(withIdentifier: "tabbar", sender: nil)
-    
+        
     }
     
+  
+    //NSUser
+    func writeButton()
+    {
+        let defaults = UserDefaults.standard
+        defaults.set(dateofbirthlabel.text, forKey:  bdKeyConstant)
+    }
+    
+    func readButton()
+    {
+        let defaults = UserDefaults.standard
+        let bd = defaults.string(forKey:  bdKeyConstant)
+        dateofbirthlabel.text = bd
+    }
 
     
 }

@@ -32,7 +32,6 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     //data passing from addnewtagVC
     var usertagid = String()
     
-    
     let ref = FIRDatabase.database().reference().child("TagsDetail")
     
     override func viewDidLoad(){
@@ -45,39 +44,29 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         mypic.center.x = self.view.center.x
         mypic.center.y = 140
         
+        print("view did load...")
+        readButton()
+        
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         var dstVC :  tagsymbolsourceCollectionViewController = segue.destination as! tagsymbolsourceCollectionViewController
+        
         dstVC.tag = self.usertagid
     }
 
     
+    @IBAction func selectpicturedidtouch(_ sender: Any) {
+        writeButton()
+        self.performSegue(withIdentifier: "symbol", sender: nil)
+        
+    }
+    
+    
     //when Done button pressed, app will sent data to firebase database
     @IBAction func donedidtouch(_ sender: Any) {
-       
-        //try to access auto key
-        //let tagref = FIRDatabase.database().reference().child("Tags")
-    
-        //tagref.queryOrdered(byChild: "major").observe(.childAdded, with: { snapshot in
-            //print all key that have key major
-          //  print("key...............\(snapshot.key)................")
-        
-       // })
-        
-        //ใช้ไม่ได้เพราะค่าtmajor จะมีค่าแค่ในviewdidload
-        //tagref.queryOrdered(byChild: "major").queryEqual(toValue: tmajor).observe(.value, with: { snapshot in
-            //ค่าออกแล้วแต่majorต้องต่างกัน ตรง queryEqual(toValue: tmajor) ค่าtmajorผิด ถ้าเปลี่ยนเป้นตัวเลขจะปริ้นค่าได้ถูก
-            //print("get in major naja")
-              //  for child in snapshot.children {
-                //    let keys = (child as AnyObject).key as String
-                   // print("key for major:\(self.tmajor)..........\(keys)...............")
-               // }
-       // })
-        //
-        
         
         let tagdetailref = ref.childByAutoId()
         
@@ -93,6 +82,7 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         let storageref = FIRStorage.storage().reference().child("tags_images").child("\(imageName).png")
         
         let uploadtagimage = UIImagePNGRepresentation(mypic.image!)
+    
         
         storageref.put(uploadtagimage!, metadata: nil) { ( metadata, error) in
             let tagImageUrl = metadata?.downloadURL()?.absoluteString
@@ -155,11 +145,6 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     }
     
     
-    @IBAction func selectpicturedidtouch(_ sender: Any) {
-        self.performSegue(withIdentifier: "symbol", sender: nil)
-    }
-    
-    
     // เมื่อกดbackหน้านี้(tagdetailViewContoller)จะลดลง -> จะขึ้นหน้า AddnewrtagViewContoller
     @IBAction func back(_ sender: Any) {
         
@@ -170,6 +155,42 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
   
     }
 
+    
+    //NSUser
+    let tagnameKeyConstant = "tagnameKey"
+    let tagdescriptionKeyConstant = "tagdescriptionKey"
+    let tagnotidistanceKeyConstant = "tagnotidistanceKey"
+    let notiswitchKeyConstant = "notiswitchKey"
+    
+    func writeButton()
+    {
+        let defaults = UserDefaults.standard
+        defaults.set(tagnamefield.text, forKey:  tagnameKeyConstant)
+        defaults.set(tagdesciptionview.text, forKey:  tagdescriptionKeyConstant)
+        defaults.set(notificationlabel.text, forKey:  tagnotidistanceKeyConstant)
+        defaults.set(true, forKey:  notiswitchKeyConstant)
+
+    }
+    
+    func readButton()
+    {
+            let defaults = UserDefaults.standard
+            let name = defaults.string(forKey:  tagnameKeyConstant)
+            let descriptions = defaults.string(forKey:  tagdescriptionKeyConstant)
+            let notidistance = defaults.string(forKey:  tagnotidistanceKeyConstant)
+            let notiswitchstate = defaults.bool(forKey:  notiswitchKeyConstant)
+        
+            tagnamefield.text = name
+            tagdesciptionview.text = descriptions
+            notificationswitch.isOn = notiswitchstate
+            notificationlabel.text = notidistance
+        
+            if Tagnotidistance == "" {
+                Tagnotidistance = notidistance!
+            }
+    }
+    //
+    
     
     
 }

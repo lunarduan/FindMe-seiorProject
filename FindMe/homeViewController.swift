@@ -22,6 +22,18 @@ class homeViewController: UIViewController {
         let logout = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate .window?.rootViewController = logout
+        print("......bd in home......")
+        readButton()
     }
+    
+    //NSUserDefault
+    let bdKeyConstant = "birthdayKey"
+    func readButton()
+    {
+        let defaults = UserDefaults.standard
+        let bd = defaults.string(forKey:  bdKeyConstant)
+        print(bd) //Prints defaultvalue in console
+    }
+    //
 
 }

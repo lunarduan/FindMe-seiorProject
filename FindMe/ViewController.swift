@@ -34,7 +34,7 @@ class ViewController: UIViewController{
                 {
                     self.emailfield.text = ""
                     self.passwordfield.text = ""
-                
+                    
                     self.performSegue(withIdentifier: "login", sender: nil)
 
                 }
@@ -47,6 +47,8 @@ class ViewController: UIViewController{
                     
                 }
             })
+            
+            
         }
         
     }
@@ -142,7 +144,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     
     
 }

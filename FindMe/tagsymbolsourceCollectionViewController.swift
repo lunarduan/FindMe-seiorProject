@@ -13,12 +13,10 @@ private let reuseIdentifier = "cell"
 class tagsymbolsourceCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var tagarray : [UIImage] = []
-    
     var selectedsymbol : UIImageView!
-    
     var tag:String?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,10 +31,10 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
 
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return tagarray.count
     }
 
+    
     //cel config
    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     //access cell which is stored in CollectionView and has ID "cell" -> reuseIdentifier
@@ -70,13 +68,13 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
         return true
     }
 
+    
     // send tag image to previous viewcontroller(tagdetailViewContoller)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if selectedsymbol.image == nil{
             selectedsymbol.image = tagarray[0]
         }
-        
         var dstVC : tagdetailViewController = segue.destination as! tagdetailViewController
         dstVC.selectedimage = self.selectedsymbol.image!
         dstVC.usertagid = self.tag!
@@ -86,5 +84,17 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     @IBAction func backdidtouch(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    //NSUser
+    let tagnameKeyConstant = "tagnameKey"
+    func readButton()
+    {
+        let defaults = UserDefaults.standard
+        let name = defaults.string(forKey:  tagnameKeyConstant)
+        print(name)
+    }
+    
+
    
 }
