@@ -115,6 +115,11 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             tagdetailref.setValue(tagdetailValue)
         }
         
+        let alert = UIAlertController(title: "Edit your tag's detail completed", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion:{})
+        
     }
     
     

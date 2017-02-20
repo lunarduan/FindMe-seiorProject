@@ -65,6 +65,13 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         selectedsymbol.image = tagarray[indexPath.row]
         selectedsymbol.sizeToFit()
+        
+        //make alert box after select tag image
+        let alert = UIAlertController(title: "select tag's image completed", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion:{})
+        
         return true
     }
 
@@ -78,6 +85,7 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
         var dstVC : tagdetailViewController = segue.destination as! tagdetailViewController
         dstVC.selectedimage = self.selectedsymbol.image!
         dstVC.usertagid = self.tag!
+        
     }
 
     

@@ -14,7 +14,7 @@ import FirebaseStorage
 class registrationViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
 
-    @IBOutlet weak var usernametextfiled: UITextField!
+    @IBOutlet weak var usernamelabel: UILabel!
     @IBOutlet weak var emaillabel: UILabel!
     @IBOutlet weak var passwordlabel: UILabel!
     
@@ -27,14 +27,10 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     var birthdayDatePicker : UIDatePicker!
     var dateofbirth:String = ""
     
+    
     var uid:String = ""
     var username:String = ""
     var email:String = ""
-    
-    
-    //NSUser
-    var bdKeyConstant: String = ""
-    
     
     let regisref = FIRDatabase.database().reference().child("Users")
     
@@ -52,22 +48,27 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         birthdayDatePicker.datePickerMode = UIDatePickerMode.date
         birthdayDatePicker.locale = Locale.current
         birthdayDatePicker.timeZone = TimeZone.current
+       // birthdayDatePicker.date = Date(timeIntervalSince1970: 10)
+        //birthdayDatePicker.minimumDate = Date(timeIntervalSince1970: 20)
         birthdayDatePicker.maximumDate = Date(timeIntervalSinceNow: 0)
         
         self.view.addSubview(birthdayDatePicker)
         
-        //NSUser
-        readData()
+    }
+    
+    //NSUserdefault
+   func writeButton()
+    {
+        let defaults = UserDefaults.standard
+        defaults.set("defaultvalue", forKey: "userNameKey")
         
     }
+
     
     func setUserDataToView(withFIRUser user: FIRUser) {
         emaillabel.text = user.email
-        usernametextfiled.text = user.displayName
+        usernamelabel.text = user.displayName
         userid.text = user.uid
-        
-        //NSUser
-        bdKeyConstant = userid.text!
     }
     
     // called when picker is changed
@@ -78,14 +79,11 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         // convert date from datePicker to String type
         let dateString = dateFormatter.string(from: birthdayDatePicker.date)
         dateofbirthlabel.text = " \(dateString)"
-        
-        //NSUser
-        writeData()
+
     }
     
-    
     @IBAction func logoutdidtouch(_ sender : Any) {
-    
+        
         try! FIRAuth.auth()!.signOut()
        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -94,8 +92,6 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         appdelegate .window?.rootViewController = loginVC
     }
     
-    
-    /*
     @IBAction func editaction(_ sender: UIBarButtonItem) {
         performSelector(inBackground: #selector(editdidtouch), with: editdidtouch())
         
@@ -226,7 +222,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         alert.addAction(confirmAction)
         self.present(alert, animated: true, completion: nil)
     }
-    */
+
     
     @IBAction func selectuserimage(_ sender: Any) {
         //called when press button under imageview
@@ -237,10 +233,10 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         //ทำให้แสดงค่ารูปที่เลือกได้
         pickercontroller.delegate = self
         
+        
         self.present(pickercontroller, animated: true, completion: nil)
         
     }
-    
     
     //executed if image is selected
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -251,7 +247,7 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
         //ทำให้รูปเป็นวงกลม
         userprofileimage.layer.cornerRadius = 20
         userprofileimage.layer.masksToBounds = true
-        
+
         return  userprofileimage.image = images
         
     }
@@ -260,18 +256,19 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
     @IBAction func startaction(_ sender: Any) {
         
         let imageName = NSUUID().uuidString
+        
         let storageref = FIRStorage.storage().reference().child("profile_images").child("\(imageName).png")
+    
         let newuser = regisref.child(userid.text!)
         
         uid = userid.text!
-        username = usernametextfiled.text!
+        username = usernamelabel.text!
         email = emaillabel.text!
         dateofbirth = dateofbirthlabel.text!
         
         
         let uploadtagimage = UIImagePNGRepresentation(userprofileimage.image!)
       
-        //sent user image to storage with command storageref.put()
         storageref.put(uploadtagimage!, metadata: nil) { ( metadata, error) in
             let profileImageUrl = metadata?.downloadURL()?.absoluteString
             
@@ -284,24 +281,11 @@ class registrationViewController: UIViewController, UINavigationControllerDelega
                 ] as [String : Any]
             newuser.setValue(uservalue)
         }
+    
         self.performSegue(withIdentifier: "tabbar", sender: nil)
-        
+    
     }
     
-  
-    //NSUser
-    func writeData()
-    {
-        let defaults = UserDefaults.standard
-        defaults.set(dateofbirthlabel.text, forKey:  bdKeyConstant)
-    }
-    
-    func readData()
-    {
-        let defaults = UserDefaults.standard
-        let bd = defaults.string(forKey:  bdKeyConstant)
-        dateofbirthlabel.text = bd
-    }
 
     
 }

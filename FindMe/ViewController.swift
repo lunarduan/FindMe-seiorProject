@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController{
 //UITabBardelegate
@@ -17,6 +18,8 @@ class ViewController: UIViewController{
     
     // use to check user state -> unknown to logined user
     var authListener: FIRAuthStateDidChangeListenerHandle?
+    
+    let userref = FIRDatabase.database().reference().child("Users")
     
     @IBAction func logindidtouch(_ sender: Any) {
         
@@ -126,8 +129,24 @@ class ViewController: UIViewController{
         super.viewWillAppear(animated)
         
         authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if let _ = user {
-                self.performSegue(withIdentifier: "login", sender: nil)
+            
+            if user?.uid != nil{
+                self.userref.child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    
+                        if dictionary["username"] == nil {
+                            self.performSegue(withIdentifier: "login", sender: nil)
+                        
+                        }else{
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let TabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+                            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+                            appdelegate .window?.rootViewController = TabBarController
+                        }
+                    }
+                }, withCancel: nil)
             }
         })
         

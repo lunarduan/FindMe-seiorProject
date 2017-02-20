@@ -21,6 +21,7 @@
 		195994DA1E3F7B4C007938C2 /* FindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195994D91E3F7B4C007938C2 /* FindMeUITests.swift */; };
 		195994EE1E3F88FD007938C2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195994ED1E3F88FD007938C2 /* TabBarController.swift */; };
 		195994F01E3F95CB007938C2 /* AddnewtagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195994EF1E3F95CB007938C2 /* AddnewtagViewController.swift */; };
+		195BAE091E5B08450085F12D /* userprofileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BAE081E5B08450085F12D /* userprofileViewController.swift */; };
 		195EB5781E45D4E600ADD2B2 /* Path.png in Resources */ = {isa = PBXBuildFile; fileRef = 195EB5771E45D4E600ADD2B2 /* Path.png */; };
 		195EB57A1E45D5E000ADD2B2 /* icon-fm-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 195EB5791E45D5E000ADD2B2 /* icon-fm-1.png */; };
 		195EB57C1E45D9DE00ADD2B2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */; };
@@ -69,6 +70,7 @@
 		195994DB1E3F7B4C007938C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		195994ED1E3F88FD007938C2 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		195994EF1E3F95CB007938C2 /* AddnewtagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddnewtagViewController.swift; sourceTree = "<group>"; };
+		195BAE081E5B08450085F12D /* userprofileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userprofileViewController.swift; sourceTree = "<group>"; };
 		195EB5771E45D4E600ADD2B2 /* Path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Path.png; sourceTree = "<group>"; };
 		195EB5791E45D5E000ADD2B2 /* icon-fm-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-fm-1.png"; sourceTree = "<group>"; };
 		195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				195EB5791E45D5E000ADD2B2 /* icon-fm-1.png */,
 				195EB5771E45D4E600ADD2B2 /* Path.png */,
 				195994B61E3F7B4B007938C2 /* AppDelegate.swift */,
+				195BAE081E5B08450085F12D /* userprofileViewController.swift */,
 				195EB58E1E45E82800ADD2B2 /* HeaderView.swift */,
 				195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */,
 				198398C51E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift */,
@@ -489,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				195EB57C1E45D9DE00ADD2B2 /* CollectionViewCell.swift in Sources */,
+				195BAE091E5B08450085F12D /* userprofileViewController.swift in Sources */,
 				195994B91E3F7B4B007938C2 /* ViewController.swift in Sources */,
 				195994F01E3F95CB007938C2 /* AddnewtagViewController.swift in Sources */,
 				198398C61E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift in Sources */,
