@@ -16,17 +16,21 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     var selectedsymbol : UIImageView!
     var tag:String?
     
+   // var j : Int = 0
+    
+    var checknd:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         for i in 1..<24{
-            
+        
             let images = UIImage(named: "\(i).png")
            tagarray.append(images!)
         }
-
+        
         selectedsymbol = UIImageView()
+
     }
 
     
@@ -34,7 +38,6 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
         return tagarray.count
     }
 
-    
     //cel config
    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     //access cell which is stored in CollectionView and has ID "cell" -> reuseIdentifier
@@ -42,9 +45,11 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     
         let img = UIImageView()
         img.image = tagarray[indexPath.row]
+        //img.image = tagarray[j]
         img.sizeToFit()
         img.center = cell.contentView.center
         cell.contentView.addSubview(img)
+        //j+=1
         return cell
    }
 
@@ -78,14 +83,22 @@ class tagsymbolsourceCollectionViewController: UICollectionViewController, UICol
     
     // send tag image to previous viewcontroller(tagdetailViewContoller)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if selectedsymbol.image == nil{
             selectedsymbol.image = tagarray[0]
         }
-        var dstVC : tagdetailViewController = segue.destination as! tagdetailViewController
-        dstVC.selectedimage = self.selectedsymbol.image!
-        dstVC.usertagid = self.tag!
+    
+        if checknd == 0 {
+            let locationdstVC : collectiontagdetailViewController = segue.destination as! collectiontagdetailViewController
+            locationdstVC.selectedimage = self.selectedsymbol.image!
+            locationdstVC.usertagid = self.tag!
+        }
         
+        if checknd != 0 {
+            let dstVC : tagdetailViewController = segue.destination as! tagdetailViewController
+            dstVC.selectedimage = self.selectedsymbol.image!
+            dstVC.usertagid = self.tag!
+        }
+    
     }
 
     

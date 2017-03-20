@@ -32,13 +32,25 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     //data passing from addnewtagVC
     var usertagid = String()
     
-    
+    //*recieve data from locationViewController
+    var detail = [String:String]()
+    var key = String()
+   
+   
     //NSUser
     var tagidKeyConstant = ""
     var tagnameKeyConstant = ""
     var tagdescriptionKeyConstant = ""
     var tagnotidistanceKeyConstant = ""
     var notiswitchKeyConstant = ""
+ 
+    
+    //NSUser location
+    var locationtagidKeyConstant = ""
+    var locationtagnameKeyConstant = ""
+    var locationtagdescriptionKeyConstant = ""
+    var locationtagnotidistanceKeyConstant = ""
+    var locationnotiswitchKeyConstant = ""
     
 
     
@@ -53,20 +65,21 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         mypic.sizeToFit()
         mypic.center.x = self.view.center.x
         mypic.center.y = 140
-        
-        
+
+     
         //NSUser
         tagidKeyConstant = self.usertagid
         tagnameKeyConstant = "\(tagidKeyConstant)"+"tagnameKey"
         tagdescriptionKeyConstant = "\(tagidKeyConstant)"+"tagdescriptionKey"
         tagnotidistanceKeyConstant = "\(tagidKeyConstant)"+"tagnotidistanceKey"
         notiswitchKeyConstant = "\(tagidKeyConstant)"+"notiswitchKey"
+        
         readData()
+
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         var dstVC :  tagsymbolsourceCollectionViewController = segue.destination as! tagsymbolsourceCollectionViewController
         
         dstVC.tag = self.usertagid
@@ -74,9 +87,9 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
 
     
     @IBAction func selectpicturedidtouch(_ sender: Any) {
+        
         //NSUser
         writeData()
-        
         self.performSegue(withIdentifier: "symbol", sender: nil)
         
     }
@@ -125,20 +138,18 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     @IBAction func notificationswitch(_ sender: Any) {
         if notificationswitch.isOn {
-            //these are for picker
             notificationpickerview.showsSelectionIndicator = true
             notificationpickerview.delegate = self
             notificationpickerview.dataSource = self
             notirange = ["Immediate(0 - 20 cm.)", "Near(20 cm. - 2 m.)", "Far(2 - 30 m.)"]
             self.view.addSubview(notificationpickerview)
-            //
+            
         }
         else {
-            //these are for picker
             notificationpickerview.delegate = self
             notificationpickerview.dataSource = self
             notirange = ["", "", ""]
-            //
+            
         }
     
     }
@@ -177,23 +188,19 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
   
     }
 
+    
     //NSUser after 13/2/2017
-    func writeData()
-    {
-        print("tagnamekey in write")
-        print(tagnameKeyConstant)
+    func writeData(){
         let defaults = UserDefaults.standard
         defaults.set(tagnamefield.text, forKey:  tagnameKeyConstant)
         defaults.set(tagdesciptionview.text, forKey:  tagdescriptionKeyConstant)
         defaults.set(notificationlabel.text, forKey:  tagnotidistanceKeyConstant)
-        defaults.set(true, forKey:  notiswitchKeyConstant)
+        
+        defaults.set(false, forKey:  notiswitchKeyConstant) //related
 
     }
     
-    func readData()
-    {
-        print("tagnamekey in read")
-        print(tagnameKeyConstant)
+    func readData(){
             let defaults = UserDefaults.standard
             let name = defaults.string(forKey:  tagnameKeyConstant)
             let descriptions = defaults.string(forKey:  tagdescriptionKeyConstant)
@@ -202,7 +209,10 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         
             tagnamefield.text = name
             tagdesciptionview.text = descriptions
-            notificationswitch.isOn = notiswitchstate
+        
+            //notificationswitch.isOn = notiswitchstate //related
+            notificationswitch.setOn(notiswitchstate, animated: true)
+        
             notificationlabel.text = notidistance
        
         if notidistance == nil{
@@ -213,7 +223,5 @@ class tagdetailViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             }
         }
     }
-    
-    
     
 }

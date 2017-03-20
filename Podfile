@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '9.0'
 
 target 'FindMe' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -12,6 +12,9 @@ target 'FindMe' do
     pod 'IQKeyboardManagerSwift'
     pod 'Firebase/Storage'
     pod 'Firebase/Auth'
+    pod 'SDWebImage', '~>3.8'	
+
+
 
   target 'FindMeTests' do
     inherit! :search_paths

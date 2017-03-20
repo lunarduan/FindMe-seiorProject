@@ -42,7 +42,6 @@ class userprofileViewController: UIViewController, UINavigationControllerDelegat
         
         }
     
-
     
         // retrieve data from database
         func setUserDataToView(withFIRUser user: FIRUser) {

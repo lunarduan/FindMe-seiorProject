@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193CFF4E1E6E9C39008F9A68 /* tagcollectionheader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193CFF4D1E6E9C39008F9A68 /* tagcollectionheader.swift */; };
+		194AA9A11E6C39CA00750C56 /* TagsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194AA9A01E6C39CA00750C56 /* TagsCollectionViewController.swift */; };
+		194AA9A31E6C5A1900750C56 /* tagimageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194AA9A21E6C5A1900750C56 /* tagimageCollectionViewCell.swift */; };
 		194C96FC1E475E1F006F3AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194C96FA1E475E1F006F3AF3 /* Main.storyboard */; };
 		19543A881E40AAD70044B375 /* tagdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19543A871E40AAD70044B375 /* tagdetailViewController.swift */; };
 		19543A8A1E40B8A30044B375 /* registrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19543A891E40B8A30044B375 /* registrationViewController.swift */; };
@@ -27,6 +30,13 @@
 		195EB57C1E45D9DE00ADD2B2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */; };
 		195EB58F1E45E82800ADD2B2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195EB58E1E45E82800ADD2B2 /* HeaderView.swift */; };
 		198398C61E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198398C51E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift */; };
+		19AE81E41E74381000816AB1 /* collectiontagdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE81E31E74381000816AB1 /* collectiontagdetailViewController.swift */; };
+		19AE81E61E74498E00816AB1 /* tagdetailImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE81E51E74498E00816AB1 /* tagdetailImageCollectionViewController.swift */; };
+		19AE81E81E744CAB00816AB1 /* tagdeatilImgCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE81E71E744CAB00816AB1 /* tagdeatilImgCollectionViewCell.swift */; };
+		19AE81EA1E744E5D00816AB1 /* headerimgCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE81E91E744E5D00816AB1 /* headerimgCollectionReusableView.swift */; };
+		19EC12CB1E65D0BD00919A4F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC12CA1E65D0BD00919A4F /* MapKit.framework */; };
+		19EC12CD1E65D0CA00919A4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC12CC1E65D0CA00919A4F /* CoreLocation.framework */; };
+		19EC12CF1E65D11600919A4F /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC12CE1E65D11600919A4F /* locationViewController.swift */; };
 		37443A93DFD9A3CD4FFD8F0D /* Pods_FindMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27606985B8EE8FA989AB5EDE /* Pods_FindMeTests.framework */; };
 		5F2C35444498F380868E9B4C /* Pods_FindMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA36C5D0CC4FE605A6F2A2C7 /* Pods_FindMe.framework */; };
 		91228C5D8E2A5D1A534CE33F /* Pods_FindMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8263F3C1534FB816B7C6C9 /* Pods_FindMeUITests.framework */; };
@@ -50,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		193CFF4D1E6E9C39008F9A68 /* tagcollectionheader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagcollectionheader.swift; sourceTree = "<group>"; };
+		194AA9A01E6C39CA00750C56 /* TagsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewController.swift; sourceTree = "<group>"; };
+		194AA9A21E6C5A1900750C56 /* tagimageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagimageCollectionViewCell.swift; sourceTree = "<group>"; };
 		194C96FB1E475E1F006F3AF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19543A871E40AAD70044B375 /* tagdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagdetailViewController.swift; sourceTree = "<group>"; };
 		19543A891E40B8A30044B375 /* registrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registrationViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +89,13 @@
 		195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		195EB58E1E45E82800ADD2B2 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		198398C51E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagsymbolsourceCollectionViewController.swift; sourceTree = "<group>"; };
+		19AE81E31E74381000816AB1 /* collectiontagdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectiontagdetailViewController.swift; sourceTree = "<group>"; };
+		19AE81E51E74498E00816AB1 /* tagdetailImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagdetailImageCollectionViewController.swift; sourceTree = "<group>"; };
+		19AE81E71E744CAB00816AB1 /* tagdeatilImgCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagdeatilImgCollectionViewCell.swift; sourceTree = "<group>"; };
+		19AE81E91E744E5D00816AB1 /* headerimgCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerimgCollectionReusableView.swift; sourceTree = "<group>"; };
+		19EC12CA1E65D0BD00919A4F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		19EC12CC1E65D0CA00919A4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		19EC12CE1E65D11600919A4F /* locationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
 		231827F1CA2DA7165324505C /* Pods-FindMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindMeUITests/Pods-FindMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		27387DB6BC3DFE602F821BAA /* Pods-FindMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindMe/Pods-FindMe.debug.xcconfig"; sourceTree = "<group>"; };
 		27606985B8EE8FA989AB5EDE /* Pods_FindMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19EC12CD1E65D0CA00919A4F /* CoreLocation.framework in Frameworks */,
+				19EC12CB1E65D0BD00919A4F /* MapKit.framework in Frameworks */,
 				5F2C35444498F380868E9B4C /* Pods_FindMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +153,8 @@
 		1613546486BE87D3F403E3AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19EC12CC1E65D0CA00919A4F /* CoreLocation.framework */,
+				19EC12CA1E65D0BD00919A4F /* MapKit.framework */,
 				AA36C5D0CC4FE605A6F2A2C7 /* Pods_FindMe.framework */,
 				27606985B8EE8FA989AB5EDE /* Pods_FindMeTests.framework */,
 				FE8263F3C1534FB816B7C6C9 /* Pods_FindMeUITests.framework */,
@@ -166,6 +190,14 @@
 				195EB5791E45D5E000ADD2B2 /* icon-fm-1.png */,
 				195EB5771E45D4E600ADD2B2 /* Path.png */,
 				195994B61E3F7B4B007938C2 /* AppDelegate.swift */,
+				19AE81E91E744E5D00816AB1 /* headerimgCollectionReusableView.swift */,
+				19AE81E71E744CAB00816AB1 /* tagdeatilImgCollectionViewCell.swift */,
+				19AE81E51E74498E00816AB1 /* tagdetailImageCollectionViewController.swift */,
+				19AE81E31E74381000816AB1 /* collectiontagdetailViewController.swift */,
+				19EC12CE1E65D11600919A4F /* locationViewController.swift */,
+				193CFF4D1E6E9C39008F9A68 /* tagcollectionheader.swift */,
+				194AA9A21E6C5A1900750C56 /* tagimageCollectionViewCell.swift */,
+				194AA9A01E6C39CA00750C56 /* TagsCollectionViewController.swift */,
 				195BAE081E5B08450085F12D /* userprofileViewController.swift */,
 				195EB58E1E45E82800ADD2B2 /* HeaderView.swift */,
 				195EB57B1E45D9DE00ADD2B2 /* CollectionViewCell.swift */,
@@ -281,8 +313,16 @@
 				TargetAttributes = {
 					195994B21E3F7B4B007938C2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7T4WC2R6B2;
+						DevelopmentTeam = C66GAR8D7E;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					195994C91E3F7B4C007938C2 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -493,16 +533,24 @@
 			files = (
 				195EB57C1E45D9DE00ADD2B2 /* CollectionViewCell.swift in Sources */,
 				195BAE091E5B08450085F12D /* userprofileViewController.swift in Sources */,
+				19AE81E61E74498E00816AB1 /* tagdetailImageCollectionViewController.swift in Sources */,
+				194AA9A31E6C5A1900750C56 /* tagimageCollectionViewCell.swift in Sources */,
 				195994B91E3F7B4B007938C2 /* ViewController.swift in Sources */,
+				19EC12CF1E65D11600919A4F /* locationViewController.swift in Sources */,
+				19AE81E81E744CAB00816AB1 /* tagdeatilImgCollectionViewCell.swift in Sources */,
+				19AE81E41E74381000816AB1 /* collectiontagdetailViewController.swift in Sources */,
+				193CFF4E1E6E9C39008F9A68 /* tagcollectionheader.swift in Sources */,
 				195994F01E3F95CB007938C2 /* AddnewtagViewController.swift in Sources */,
 				198398C61E40DEFA001BB9DC /* tagsymbolsourceCollectionViewController.swift in Sources */,
 				19543A8A1E40B8A30044B375 /* registrationViewController.swift in Sources */,
+				19AE81EA1E744E5D00816AB1 /* headerimgCollectionReusableView.swift in Sources */,
 				19543A8C1E40BB100044B375 /* homeViewController.swift in Sources */,
 				195994EE1E3F88FD007938C2 /* TabBarController.swift in Sources */,
 				195EB58F1E45E82800ADD2B2 /* HeaderView.swift in Sources */,
 				195994BF1E3F7B4C007938C2 /* FindMe.xcdatamodeld in Sources */,
 				19543A881E40AAD70044B375 /* tagdetailViewController.swift in Sources */,
 				195994B71E3F7B4B007938C2 /* AppDelegate.swift in Sources */,
+				194AA9A11E6C39CA00750C56 /* TagsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,12 +703,14 @@
 			baseConfigurationReference = 27387DB6BC3DFE602F821BAA /* Pods-FindMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7T4WC2R6B2;
+				DEVELOPMENT_TEAM = C66GAR8D7E;
 				INFOPLIST_FILE = FindMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lunix.FindMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lun.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -669,12 +719,14 @@
 			baseConfigurationReference = E55409ACDACBC73A8316C8E8 /* Pods-FindMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7T4WC2R6B2;
+				DEVELOPMENT_TEAM = C66GAR8D7E;
 				INFOPLIST_FILE = FindMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lunix.FindMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lun.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

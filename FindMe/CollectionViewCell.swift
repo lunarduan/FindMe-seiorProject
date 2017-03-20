@@ -11,10 +11,8 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mycollection1: UIImageView!
     
-    //first load func
     override func awakeFromNib() {
-        //code here will execute when cell is loaded
-        
+
         
     }
 }
