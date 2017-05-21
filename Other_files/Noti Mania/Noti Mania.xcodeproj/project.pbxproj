@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DED3AF761DEB0BA800BAB1A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3AF751DEB0BA800BAB1A3 /* AppDelegate.swift */; };
+		DED3AF781DEB0BA800BAB1A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3AF771DEB0BA800BAB1A3 /* ViewController.swift */; };
+		DED3AF7B1DEB0BA800BAB1A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED3AF791DEB0BA800BAB1A3 /* Main.storyboard */; };
+		DED3AF7D1DEB0BA800BAB1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DED3AF7C1DEB0BA800BAB1A3 /* Assets.xcassets */; };
+		DED3AF801DEB0BA800BAB1A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED3AF7E1DEB0BA800BAB1A3 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DED3AF721DEB0BA800BAB1A3 /* Noti Mania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noti Mania.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DED3AF751DEB0BA800BAB1A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DED3AF771DEB0BA800BAB1A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DED3AF7A1DEB0BA800BAB1A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DED3AF7C1DEB0BA800BAB1A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DED3AF7F1DEB0BA800BAB1A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DED3AF811DEB0BA800BAB1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DED3AF6F1DEB0BA800BAB1A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DED3AF691DEB0BA800BAB1A3 = {
+			isa = PBXGroup;
+			children = (
+				DED3AF741DEB0BA800BAB1A3 /* Noti Mania */,
+				DED3AF731DEB0BA800BAB1A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DED3AF731DEB0BA800BAB1A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DED3AF721DEB0BA800BAB1A3 /* Noti Mania.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DED3AF741DEB0BA800BAB1A3 /* Noti Mania */ = {
+			isa = PBXGroup;
+			children = (
+				DED3AF751DEB0BA800BAB1A3 /* AppDelegate.swift */,
+				DED3AF771DEB0BA800BAB1A3 /* ViewController.swift */,
+				DED3AF791DEB0BA800BAB1A3 /* Main.storyboard */,
+				DED3AF7C1DEB0BA800BAB1A3 /* Assets.xcassets */,
+				DED3AF7E1DEB0BA800BAB1A3 /* LaunchScreen.storyboard */,
+				DED3AF811DEB0BA800BAB1A3 /* Info.plist */,
+			);
+			path = "Noti Mania";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DED3AF711DEB0BA800BAB1A3 /* Noti Mania */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DED3AF841DEB0BA800BAB1A3 /* Build configuration list for PBXNativeTarget "Noti Mania" */;
+			buildPhases = (
+				DED3AF6E1DEB0BA800BAB1A3 /* Sources */,
+				DED3AF6F1DEB0BA800BAB1A3 /* Frameworks */,
+				DED3AF701DEB0BA800BAB1A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Noti Mania";
+			productName = "Noti Mania";
+			productReference = DED3AF721DEB0BA800BAB1A3 /* Noti Mania.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DED3AF6A1DEB0BA800BAB1A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = MAGNUMIUM;
+				TargetAttributes = {
+					DED3AF711DEB0BA800BAB1A3 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = DLD3XSF9EN;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = DED3AF6D1DEB0BA800BAB1A3 /* Build configuration list for PBXProject "Noti Mania" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DED3AF691DEB0BA800BAB1A3;
+			productRefGroup = DED3AF731DEB0BA800BAB1A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DED3AF711DEB0BA800BAB1A3 /* Noti Mania */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DED3AF701DEB0BA800BAB1A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DED3AF801DEB0BA800BAB1A3 /* LaunchScreen.storyboard in Resources */,
+				DED3AF7D1DEB0BA800BAB1A3 /* Assets.xcassets in Resources */,
+				DED3AF7B1DEB0BA800BAB1A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DED3AF6E1DEB0BA800BAB1A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DED3AF781DEB0BA800BAB1A3 /* ViewController.swift in Sources */,
+				DED3AF761DEB0BA800BAB1A3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DED3AF791DEB0BA800BAB1A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DED3AF7A1DEB0BA800BAB1A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DED3AF7E1DEB0BA800BAB1A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DED3AF7F1DEB0BA800BAB1A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DED3AF821DEB0BA800BAB1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DED3AF831DEB0BA800BAB1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DED3AF851DEB0BA800BAB1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DLD3XSF9EN;
+				INFOPLIST_FILE = "Noti Mania/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lunnn.Noti-Mania";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DED3AF861DEB0BA800BAB1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DLD3XSF9EN;
+				INFOPLIST_FILE = "Noti Mania/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lunnn.Noti-Mania";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DED3AF6D1DEB0BA800BAB1A3 /* Build configuration list for PBXProject "Noti Mania" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DED3AF821DEB0BA800BAB1A3 /* Debug */,
+				DED3AF831DEB0BA800BAB1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DED3AF841DEB0BA800BAB1A3 /* Build configuration list for PBXNativeTarget "Noti Mania" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DED3AF851DEB0BA800BAB1A3 /* Debug */,
+				DED3AF861DEB0BA800BAB1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DED3AF6A1DEB0BA800BAB1A3 /* Project object */;
+}
